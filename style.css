@@ -111,7 +111,7 @@ body {
 
 .popup__item {
   min-width: 50%;
-  height: 60%;
+  height: 100%;
   background: white;
   order: 0;
   flex: 0 1 auto;
