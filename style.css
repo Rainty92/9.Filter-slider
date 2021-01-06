@@ -34,7 +34,8 @@ button::after {
   box-shadow: 0 0 0px rgba(0, 0, 0, 0.2), inset 0 0 0px rgba(0, 0, 0, 0.2);
   transition: box-shadow 0.1s;
 }
-button:hover span, button:focus span {
+button:hover span,
+button:focus span {
   background-color: #dca56d;
 }
 button:active span {
@@ -109,21 +110,74 @@ body {
 }
 
 .popup__item {
-  width: 700px;
+  min-width: 50%;
   height: 400px;
   background: white;
   order: 0;
   flex: 0 1 auto;
   align-self: auto;
+  transition: 0.4s;
 }
 
 .hide {
   display: none;
 }
 
-.btn {
+/*.btn {
   border: 1px solid black;
   background: black;
   color: white;
   cursor: pointer;
+}*/
+
+.btn {
+  /*margin: 10px;*/
+}
+.btn svg {
+  width: 50px;
+  height: auto;
+  margin: 0 2rem;
+  cursor: pointer;
+  overflow: visible;
+}
+.btn svg polygon,
+.btn svg path {
+  transition: all 0.5s cubic-bezier(0.2, 1, 0.3, 1);
+  fill: #000000;
+}
+.btn svg:hover polygon,
+.btn svg:hover path {
+  transition: all 1s cubic-bezier(0.2, 1, 0.3, 1);
+  fill: rgb(109, 109, 109);
+}
+.btn svg:hover .arrow-6-pl {
+  animation: arrow-6-anim 1s cubic-bezier(0.2, 1, 0.3, 1) infinite;
+}
+.arrow-6 svg:hover .arrow-6-pl-fixed {
+  animation: arrow-6-fixed-anim 1s cubic-bezier(0.2, 1, 0.3, 1) infinite;
+}
+
+@keyframes arrow-6-anim {
+  0% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+  5% {
+    transform: translateX(-0.1rem);
+  }
+  100% {
+    transform: translateX(1rem);
+    opacity: 0;
+  }
+}
+@keyframes arrow-6-fixed-anim {
+  5% {
+    opacity: 0;
+  }
+  20% {
+    opacity: 0.4;
+  }
+  100% {
+    opacity: 1;
+  }
 }

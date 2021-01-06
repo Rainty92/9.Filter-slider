@@ -102,16 +102,18 @@ popup.onclick = function () {
 	event.stopPropagation()
 }
 
+let count = 0;
 
 itemImg.forEach((e, i) => {
 	e.addEventListener('click', function () {
 	popup.classList.remove('hide')
 	popup.style.background = `url('${img[i].path}') center/cover no-repeat`
 	popupWrapper.classList.remove('hide')
-		console.log(itemImg[i])
+	
+	count = i;
+
 	})
 })
-
 
 popupWrapper.onclick = close;
 
@@ -124,9 +126,6 @@ let btnL = document.querySelector('.btn-left');
 let btnR = document.querySelector('.btn-right');
 
 
-let counter = 0;
-
-
 btnR.onclick = function () {
 	changeImg(1)
 }
@@ -135,7 +134,21 @@ btnL.onclick = function () {
 	changeImg(0)
 }
 
-function changeImg() {
-	console.log('1')
+function changeImg(i) {
 	event.stopPropagation()
+	if(i) {
+		if(count >= img.length - 1) {
+			count = 0
+		} else {
+			count++
+		}
+	} else {
+		if(count <= 0){
+			count = img.length - 1
+		} else {
+			count--	
+		}
+	
+	}
+	popup.style.background = `url('${img[count].path}') center/cover no-repeat`
 }
